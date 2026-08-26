@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
-"""Module that contains a measure_time function."""
+"""
+This module contains a function that measures the average execution
+time for running multiple asynchronous coroutines using wait_n.
+"""
+import asyncio
 import time
 
 wait_n = __import__('1-concurrent_coroutines').wait_n
 
 
 def measure_time(n: int, max_delay: int) -> float:
-    """Measure total execution time for wait_n(n, max_delay) and return average time."""
+    """
+    Measures the total execution time for wait_n(n, max_delay)
+    and returns the average time per coroutine as a float.
+    """
     start_time = time.time()
-    __import__('asyncio').run(wait_n(n, max_delay))
+    asyncio.run(wait_n(n, max_delay))
     end_time = time.time()
 
     total_time = end_time - start_time
