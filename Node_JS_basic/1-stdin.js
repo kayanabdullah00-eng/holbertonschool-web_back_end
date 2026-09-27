@@ -1,13 +1,10 @@
 /**
- * Interactive script using process.stdin and process.stdout.
+ * Interactive script using process.stdin and process.stdout for Holberton.
  */
 process.stdout.write("Welcome to Holberton School, what is your name?\n");
 
-process.stdin.on("readable", () => {
-  const chunk = process.stdin.read();
-  if (chunk !== null) {
-    process.stdout.write(`Your name is: ${chunk}`);
-  }
+process.stdin.on("data", (data) => {
+  process.stdout.write(`Your name is: ${data}`);
 });
 
 process.stdin.on("end", () => {
