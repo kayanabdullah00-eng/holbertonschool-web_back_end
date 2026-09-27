@@ -1,7 +1,6 @@
-/**
- * Interactive script using process.stdin and process.stdout for Holberton.
- */
 process.stdout.write("Welcome to Holberton School, what is your name?\n");
+
+process.stdin.setEncoding("utf8");
 
 process.stdin.on("data", (data) => {
   process.stdout.write(`Your name is: ${data}`);
